@@ -1,6 +1,6 @@
 # Calculadora Web
 
-![Preview da Calculadora](./assets/calculadora-preview.png)
+<img src="assets/calculadora-preview.png" alt="Preview da Calculadora" width="700">
 
 Uma calculadora web desenvolvida como projeto de portfólio para praticar HTML, CSS e JavaScript.
 
