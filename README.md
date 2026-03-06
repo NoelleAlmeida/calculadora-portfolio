@@ -1,5 +1,7 @@
 # Calculadora Web
 
+![Preview da Calculadora](./assets/calculadora-preview.png)
+
 Uma calculadora web desenvolvida como projeto de portfólio para praticar HTML, CSS e JavaScript.
 
 ## Sobre o projeto
