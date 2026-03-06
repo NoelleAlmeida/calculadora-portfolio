@@ -4,13 +4,14 @@ Uma calculadora web desenvolvida como projeto de portfólio para praticar HTML, 
 
 ## Sobre o projeto
 
-Este projeto foi criado com o objetivo de praticar conceitos fundamentais do desenvolvimento front-end, como estruturação de páginas, estilização responsiva, lógica de programação e manipulação do DOM.
+Este projeto começou como uma calculadora básica e foi evoluindo para uma versão mais completa, com melhorias visuais, novas funcionalidades e uma calculadora científica integrada.
 
-Além das operações básicas, a calculadora recebeu melhorias visuais e funcionais para ter mais cara de projeto real de portfólio.
+O objetivo foi praticar lógica de programação, manipulação do DOM, estilização responsiva, versionamento com Git/GitHub e publicação online.
 
 ## Funcionalidades
 
 - Operações básicas: adição, subtração, multiplicação e divisão
+- Porcentagem
 - Botão para limpar tudo
 - Botão para apagar um caractere por vez
 - Suporte ao teclado
@@ -18,6 +19,21 @@ Além das operações básicas, a calculadora recebeu melhorias visuais e funcio
 - Página "Sobre o projeto"
 - Layout responsivo
 - Tratamento de erro para divisão por zero
+- Modo científico com funções extras
+
+## Funções do modo científico
+
+- Potência ao quadrado (`x²`)
+- Potência (`xʸ`)
+- Raiz quadrada
+- Parênteses
+- Número π
+- Seno
+- Cosseno
+- Tangente
+- Logaritmo
+- Logaritmo natural
+- Valor absoluto
 
 ## Tecnologias utilizadas
 
@@ -26,6 +42,7 @@ Além das operações básicas, a calculadora recebeu melhorias visuais e funcio
 - JavaScript
 - Git
 - GitHub
+- Vercel
 
 ## O que aprendi
 
@@ -36,7 +53,9 @@ Com este projeto, pratiquei:
 - Manipulação do DOM com JavaScript
 - Eventos de clique e teclado
 - Alternância de tema com `localStorage`
+- Evolução de uma calculadora simples para uma versão mais completa
 - Versionamento com Git e GitHub
+- Publicação de projeto online com a Vercel
 
 ## Estrutura do projeto
 
@@ -48,9 +67,19 @@ calculadora-portfolio/
 ├── script.js
 └── README.md
 
-## Como executar o projeto
+Como executar o projeto
 
-1. Clone este repositório ou baixe os arquivos
-2. Abra a pasta do projeto
-3. Execute o arquivo `index.html` no navegador
+Clone este repositório ou baixe os arquivos
+
+Abra a pasta do projeto
+
+Execute o arquivo index.html no navegador
+
+Deploy
+
+Projeto publicado na Vercel.
+
+Autora
+
+Feito com 💙 por Noelle Almeida
 
