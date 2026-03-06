@@ -1,4 +1,5 @@
 const display = document.getElementById("display");
+const themeToggle = document.getElementById("themeToggle");
 
 function appendValue(value) {
   if (display.value === "Erro") {
@@ -28,9 +29,31 @@ function calculate() {
   }
 }
 
+function toggleTheme() {
+  document.body.classList.toggle("light-theme");
+
+  if (document.body.classList.contains("light-theme")) {
+    themeToggle.textContent = "☀️";
+    localStorage.setItem("theme", "light");
+  } else {
+    themeToggle.textContent = "🌙";
+    localStorage.setItem("theme", "dark");
+  }
+}
+
+function loadTheme() {
+  const savedTheme = localStorage.getItem("theme");
+
+  if (savedTheme === "light") {
+    document.body.classList.add("light-theme");
+    themeToggle.textContent = "☀️";
+  } else {
+    themeToggle.textContent = "🌙";
+  }
+}
+
 document.addEventListener("keydown", function (event) {
   const key = event.key;
-
   const allowedKeys = "0123456789+-*/.";
 
   if (allowedKeys.includes(key)) {
@@ -44,3 +67,5 @@ document.addEventListener("keydown", function (event) {
     clearDisplay();
   }
 });
+
+loadTheme();
