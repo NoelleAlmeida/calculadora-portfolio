@@ -29,7 +29,14 @@ function calculate() {
       return;
     }
 
-    display.value = eval(display.value);
+    const result = eval(display.value);
+
+    if (!Number.isFinite(result) || Number.isNaN(result)) {
+      display.value = "Erro";
+      return;
+    }
+
+    display.value = result;
   } catch {
     display.value = "Erro";
   }
