@@ -92,7 +92,9 @@ body {
 .clear {
   background: #ef4444;
 }
-
+.delete {
+  background: #8b5cf6;
+}
 .zero {
   grid-column: span 4;
 }
