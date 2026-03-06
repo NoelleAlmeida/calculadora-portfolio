@@ -2,6 +2,10 @@
 
 <img width="786" height="837" alt="calculadora-preview" src="https://github.com/user-attachments/assets/9188deaa-37a8-44de-9cc7-1398dffd1d5b" />
 
+## Deploy
+
+Acesse o projeto online:
+[Ver calculadora funcionando](https://calculadora-portfolio-brown.vercel.app)
 
 Uma calculadora web desenvolvida como projeto de portfólio para praticar HTML, CSS e JavaScript.
 
