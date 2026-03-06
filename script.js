@@ -2,6 +2,8 @@ const display = document.getElementById("display");
 const themeToggle = document.getElementById("themeToggle");
 
 function appendValue(value) {
+  if (!display) return;
+
   if (display.value === "Erro") {
     display.value = "";
   }
@@ -10,14 +12,18 @@ function appendValue(value) {
 }
 
 function clearDisplay() {
+  if (!display) return;
   display.value = "";
 }
 
 function deleteLast() {
+  if (!display) return;
   display.value = display.value.slice(0, -1);
 }
 
 function calculate() {
+  if (!display) return;
+
   try {
     if (display.value.trim() === "") {
       return;
@@ -32,6 +38,8 @@ function calculate() {
 function toggleTheme() {
   document.body.classList.toggle("light-theme");
 
+  if (!themeToggle) return;
+
   if (document.body.classList.contains("light-theme")) {
     themeToggle.textContent = "☀️";
     localStorage.setItem("theme", "light");
@@ -44,6 +52,8 @@ function toggleTheme() {
 function loadTheme() {
   const savedTheme = localStorage.getItem("theme");
 
+  if (!themeToggle) return;
+
   if (savedTheme === "light") {
     document.body.classList.add("light-theme");
     themeToggle.textContent = "☀️";
@@ -53,6 +63,8 @@ function loadTheme() {
 }
 
 document.addEventListener("keydown", function (event) {
+  if (!display) return;
+
   const key = event.key;
   const allowedKeys = "0123456789+-*/.";
 

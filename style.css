@@ -60,6 +60,35 @@ body {
   opacity: 0.95;
 }
 
+.page-links {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  margin-bottom: 18px;
+}
+
+.page-links a {
+  text-decoration: none;
+  color: white;
+  background: #334155;
+  padding: 10px 14px;
+  border-radius: 999px;
+  font-size: 0.95rem;
+  transition:
+    transform 0.15s ease,
+    opacity 0.15s ease;
+}
+
+.page-links a:hover {
+  transform: translateY(-2px);
+  opacity: 0.95;
+}
+
+.page-links a.active {
+  background: #10b981;
+  color: white;
+}
+
 .calculator h1 {
   color: white;
   text-align: center;
@@ -155,6 +184,30 @@ body {
   opacity: 0.9;
 }
 
+.about-card {
+  max-width: 100%;
+}
+
+.about-content {
+  color: #e2e8f0;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  line-height: 1.6;
+}
+
+.about-content h2 {
+  font-size: 1.1rem;
+  margin-top: 8px;
+}
+
+.about-content ul {
+  padding-left: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
 /* TEMA CLARO */
 
 body.light-theme {
@@ -170,6 +223,16 @@ body.light-theme .calculator {
 body.light-theme .theme-toggle {
   background: #e2e8f0;
   color: #0f172a;
+}
+
+body.light-theme .page-links a {
+  background: #cbd5e1;
+  color: #0f172a;
+}
+
+body.light-theme .page-links a.active {
+  background: #10b981;
+  color: white;
 }
 
 body.light-theme .calculator h1 {
@@ -214,6 +277,10 @@ body.light-theme .footer {
   box-shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
 }
 
+body.light-theme .about-content {
+  color: #334155;
+}
+
 @media (max-width: 480px) {
   .calculator {
     padding: 18px;
@@ -237,5 +304,13 @@ body.light-theme .footer {
   .theme-toggle {
     width: 44px;
     height: 44px;
+  }
+
+  .page-links {
+    flex-direction: column;
+  }
+
+  .page-links a {
+    text-align: center;
   }
 }
