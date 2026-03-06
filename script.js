@@ -1,5 +1,7 @@
 const display = document.getElementById("display");
 const themeToggle = document.getElementById("themeToggle");
+const scientificButtons = document.getElementById("scientificButtons");
+const scientificToggle = document.getElementById("scientificToggle");
 
 function appendValue(value) {
   if (!display) return;
@@ -9,6 +11,10 @@ function appendValue(value) {
   }
 
   display.value += value;
+}
+
+function appendFunction(value) {
+  appendValue(value);
 }
 
 function clearDisplay() {
@@ -21,6 +27,56 @@ function deleteLast() {
   display.value = display.value.slice(0, -1);
 }
 
+function applyPercent() {
+  if (!display) return;
+  if (display.value === "" || display.value === "Erro") return;
+
+  display.value += "%";
+}
+
+function sinDeg(value) {
+  return Math.sin((value * Math.PI) / 180);
+}
+
+function cosDeg(value) {
+  return Math.cos((value * Math.PI) / 180);
+}
+
+function tanDeg(value) {
+  return Math.tan((value * Math.PI) / 180);
+}
+
+function replacePercent(expression) {
+  let updatedExpression = expression;
+  const percentPattern = /(\d+(\.\d+)?|\([^()]*\))%/;
+
+  while (percentPattern.test(updatedExpression)) {
+    updatedExpression = updatedExpression.replace(
+      /(\d+(\.\d+)?|\([^()]*\))%/g,
+      "($1/100)",
+    );
+  }
+
+  return updatedExpression;
+}
+
+function formatExpression(expression) {
+  let formattedExpression = expression
+    .replace(/π/g, "Math.PI")
+    .replace(/sqrt\(/g, "Math.sqrt(")
+    .replace(/log\(/g, "Math.log10(")
+    .replace(/ln\(/g, "Math.log(")
+    .replace(/abs\(/g, "Math.abs(")
+    .replace(/sin\(/g, "sinDeg(")
+    .replace(/cos\(/g, "cosDeg(")
+    .replace(/tan\(/g, "tanDeg(")
+    .replace(/\^/g, "**");
+
+  formattedExpression = replacePercent(formattedExpression);
+
+  return formattedExpression;
+}
+
 function calculate() {
   if (!display) return;
 
@@ -29,7 +85,8 @@ function calculate() {
       return;
     }
 
-    const result = eval(display.value);
+    const expression = formatExpression(display.value);
+    const result = eval(expression);
 
     if (!Number.isFinite(result) || Number.isNaN(result)) {
       display.value = "Erro";
@@ -69,11 +126,45 @@ function loadTheme() {
   }
 }
 
+function toggleScientificMode() {
+  if (!scientificButtons || !scientificToggle) return;
+
+  scientificButtons.classList.toggle("hidden");
+
+  const isVisible = !scientificButtons.classList.contains("hidden");
+
+  if (isVisible) {
+    scientificToggle.textContent = "123";
+    scientificToggle.title = "Voltar ao modo normal";
+    localStorage.setItem("scientificMode", "on");
+  } else {
+    scientificToggle.textContent = "ƒx";
+    scientificToggle.title = "Abrir modo científico";
+    localStorage.setItem("scientificMode", "off");
+  }
+}
+
+function loadScientificMode() {
+  if (!scientificButtons || !scientificToggle) return;
+
+  const savedMode = localStorage.getItem("scientificMode");
+
+  if (savedMode === "on") {
+    scientificButtons.classList.remove("hidden");
+    scientificToggle.textContent = "123";
+    scientificToggle.title = "Voltar ao modo normal";
+  } else {
+    scientificButtons.classList.add("hidden");
+    scientificToggle.textContent = "ƒx";
+    scientificToggle.title = "Abrir modo científico";
+  }
+}
+
 document.addEventListener("keydown", function (event) {
   if (!display) return;
 
   const key = event.key;
-  const allowedKeys = "0123456789+-*/.";
+  const allowedKeys = "0123456789+-*/.()^%";
 
   if (allowedKeys.includes(key)) {
     appendValue(key);
@@ -88,3 +179,4 @@ document.addEventListener("keydown", function (event) {
 });
 
 loadTheme();
+loadScientificMode();
